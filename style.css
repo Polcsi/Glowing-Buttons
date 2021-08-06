@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    overflow: auto;
+    overscroll-behavior: none;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: black;
+    align-items: center;
+    justify-content: center;
+}
+
+#animatedbtn {
+    position: relative;
+    height: 60px;
+    width: 200px;
+    border: none;
+    outline: none;
+    background: #111;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all .2s ease-in-out;
+    margin-bottom: 100px;
+}
+
+#animatedbtn:before {
+    position: absolute;
+    content: '';
+    height: calc(100% + 4px);
+    width: calc(100% + 4px);
+    top: -2px;
+    left: -2px;
+    z-index: -1;
+    opacity: 1;
+    filter: blur(5px);
+    border-radius: 5px;
+    background: linear-gradient(45deg, #ff0000, #ff7300,
+     #fffb00,
+     #48ff00, #00ffd5, #002bff, #7a00ff,
+    #ff00c8, #ff0000);
+    background-size: 400%;
+    transition: opacity .3s ease-in-out;
+    animation: animate 20s linear infinite;
+}
+
+#animatedbtn:hover:before {
+    opacity: 1;
+}
+
+#animatedbtn:hover {
+    background: none;
+    font-weight: 600;
+}
+
+#animatedbtn:hover:active::before {
+    filter: blur(5px);
+    height: calc(100% + 10px);
+    width: calc(100% + 10px);
+    top: -5px;
+    left: -5px;
+}
+
+#animatedbtn:hover:active {
+    background: none;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+#glowingbtn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    height: 60px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border: 3px solid #35D5A4;
+    background: #111;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+}
+
+#glowingbtn:hover {
+    background: #35D5A4;
+    font-weight: 600;
+    box-shadow: 0 0 15px #35D5A4,
+    0 0 25px #35D5A4,
+    0 0 50px #35D5A4;
+}
+
+#glowingbtn:hover:active {
+    border: 3px solid transparent;
+    background: #35D5A5a9;
+    box-shadow: 0 0 15px #35D5A5a9,
+    0 0 25px #35D5A5a9,
+    0 0 50px #35D5A5a9,
+    0 0 65px #35D5A5a9;
+}
